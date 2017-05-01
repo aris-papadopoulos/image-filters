@@ -1,0 +1,5 @@
+/*Only if <= IE 9*/
+
+.cdb-row > *[class*="cdb-"] { float: left; }
+
+.sync_engine { max-width: 1280px!important; width: 100%; }

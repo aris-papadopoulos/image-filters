@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Syncrez</title>
+	<link rel="stylesheet" href="./css/reset.min.css">
+	<link rel="stylesheet" href="./css/cdb-grid.css">
+	<!--[if lt IE 10]>
+		<link rel="stylesheet" type="text/css" href="./css/ie9.css" />
+	<![endif]-->
+	<!--[if lte IE 9]>
+		<link rel="stylesheet" type="text/css" href="./css/ie9.css" />
+	<![endif]-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./css/calendar.css">
+	<link rel="stylesheet" href="./css/flexslider.css">
+	<link rel="stylesheet" href="./css/calendario/calendar.css">
+	<link rel="stylesheet" type="text/css" href="./css/calendario/custom_1.css" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=greek-ext" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="bg-presets.css">
+	<link rel="stylesheet" href="./css/media-queries.css">
+</head>
+<body>
+	
+	<a class="overlay-edit hide"><i class="fa fa-cog" aria-hidden="true"></i></a>
+	<div class="overlay-options">
+	
+		<h2>Overlay Options</h2>
+		<a class="overlay-close"><i class="fa fa-close" aria-hidden="true"></i></a>
+		<p>&nbsp;</p>
+		<p>Darken:</p>
+		<input id="slider1" class="overlay-slider" type="range" min="0" max="3" step="1" value="0"/>
+		<p>Blur:</p>
+		<input id="slider2" class="overlay-slider" type="range" min="0" max="3" step="1" value="0"/>
+		<div class="container">
+			<p>Choose a preset:</p>
+			<ul>
+				<li>
+					<input type="radio" id="none" name="presets" checked>
+					<label for="none">None</label>
+					<div class="check"></div>
+				</li>
+				<li>
+					<input type="radio" id="lighten" name="presets">
+					<label for="lighten">Lighten</label>
+					<div class="check"></div>
+				</li>
+				<li>
+					<input type="radio" id="vintage1" name="presets">
+					<label for="vintage1">Vintage 1</label>
+					<div class="check"><div class="inside"></div></div>
+				</li>
+				<li>
+					<input type="radio" id="vintage2" name="presets">
+					<label for="vintage2">Vintage 2</label>
+					<div class="check"><div class="inside"></div></div>
+				</li>
+			</ul>
+		</div>
+	
+	</div>
+	
+	<div class="overlay"></div>
+	<div class="wrapper">
+		<div class="site-container">
+			<header class="site-header cdb-row">
+				<div class="languages cdb-8">
+					<div class="lang_selector">
+						<span class="language">English</span>
+						<i class="fa fa-caret-down" aria-hidden="true"></i>
+					</div>
+					<div class="lang_list">
+						<ul>
+							<li class="lang_active">English</li>
+							<li>Greek</li>
+							<li>French</li>
+							<li>Italian</li>
+						</ul>
+					</div>
+				</div>
+				<div class="logo text-center cdb-8"><img src="./images/logo.png"></div>
+				<div class="burger_menu cdb-8">
+					<div class="burger">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+			</header>
+			<section class="main-content">
+				<header class="content-header">
+					<h1>Book  <span>your room</span> online</h1>
+					<p>Book online on the official booking engine of Navy Blue Suites</p>
+				</header>
+				<div class="content-desc">
+					<div class="special_offer">
+						<a href="#">VIEW SPECIAL OFFERS</a>
+					</div>
+					<div class="sync_engine cdb-row">
+						<div class="checkin cdb-7">
+							<span class="engine_label">CHECK IN</span>
+								<div class="date_info cdb-row">
+									<span class="checkin_day cdb-8"></span>
+									<span class="cdb-8 month_year">
+										<div class="checkin_month"></div>
+										<div class="checkin_year"></div>
+									</span>	
+									<i class="fa fa-calendar checkin_calendar cdb-8" aria-hidden="true"></i>
+								</div>
+								<div id="checkin_datepicker">
+									<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+									<p class="title_engine_modal">SELECT CHECK IN DATE</p>
+								</div>
+						</div>
+						<div class="checkout cdb-7">
+							<span class="engine_label">CHECK OUT</span>	
+								<div class="date_info cdb-row">
+									<span class="checkout_day cdb-8"></span>
+									<span class="cdb-8 month_year">
+										<div class="checkout_month"></div>
+										<div class="checkout_year"></div>
+									</span>	
+									<i class="fa fa-calendar checkout_calendar cdb-8" aria-hidden="true"></i>
+								</div>
+								<div id="checkout_datepicker">
+									<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+									<p class="title_engine_modal">SELECT CHECK OUT DATE</p>
+								</div>
+						</div>
+
+						<div class="adults cdb-3">
+							<span class="engine_label">ADULTS</span>
+							<div class="cdb-row">
+								<span id="adults_num" class="cdb-8">2</span>
+								<i class="fa fa-angle-down cdb-8 angle_adults" aria-hidden="true"></i>		
+							</div>
+
+							<div id="adults_selector" class="selector_sync">
+								<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+								<p class="title_engine_modal">SELECT No OF ADULTS</p>
+								<div class="holder clearfix">
+									<div class="text-center bold">Select No of Adults</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>1</span></span>
+										<span class="cdb-8"><span>2</span></span>
+										<span class="cdb-8"><span>3</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>4</span></span>
+										<span class="cdb-8"><span>5</span></span>
+										<span class="cdb-8"><span>6</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>7</span></span>
+										<span class="cdb-8"><span>8</span></span>
+										<span class="cdb-8"><span>9</span></span>
+									</div>
+								</div>
+							</div>	
+
+						</div>
+
+						<div class="children cdb-4">
+							<span class="engine_label"><span>CHILDREN</span><span class="ages">(9-14)</span></span>	
+							<div class="cdb-row">
+								<span id="children_num" class="cdb-8">&#45;</span>
+								<i class="fa fa-angle-down cdb-8 angle_children" aria-hidden="true"></i>
+							</div>
+
+							<div id="children_selector" class="selector_sync">
+								<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+								<p class="title_engine_modal">SELECT No OF CHILDREN</p>
+								<div class="holder clearfix">
+									<div class="text-center bold">Select No of Children</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>0</span></span>
+										<span class="cdb-8"><span>1</span></span>
+										<span class="cdb-8"><span>2</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>3</span></span>
+										<span class="cdb-8"><span>4</span></span>
+										<span class="cdb-8"><span>5</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>6</span></span>
+										<span class="cdb-8"><span>7</span></span>
+										<span class="cdb-8"><span>8</span></span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="babies cdb-3">
+							<span class="engine_label"><span>BABIES</span><span class="ages">(0-2)</span></span>	
+							<div class="cdb-row">
+								<span id="babies_num" class="cdb-8">&#45;</span>
+								<i class="fa fa-angle-down cdb-8 angle_babies" aria-hidden="true"></i>
+							</div>
+
+							<div id="babies_selector" class="selector_sync">
+								<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+								<p class="title_engine_modal">SELECT No OF BABIES</p>
+								<div class="holder clearfix">
+									<div class="text-center bold">Select No of Babies</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>0</span></span>
+										<span class="cdb-8"><span>1</span></span>
+										<span class="cdb-8"><span>2</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>3</span></span>
+										<span class="cdb-8"><span>4</span></span>
+										<span class="cdb-8"><span>5</span></span>
+									</div>
+									<div class="cdb-row">
+										<span class="cdb-8"><span>6</span></span>
+										<span class="cdb-8"><span>7</span></span>
+										<span class="cdb-8"><span>8</span></span>
+									</div>
+								</div>
+							</div>	
+
+						</div>
+					</div> <!-- sync_engine -->
+					<div class="sync_search">
+						<a href="#">SEARCH</a>
+					</div>
+					<div class="sync_calendar">
+						<a href="#">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							<span>OR VIEW THE CALENDAR</span>
+						</a>
+					</div>
+				</div>
+			</section>
+			<div class="special_offer_banner close">
+				  <div><i class="fa fa-check" aria-hidden="true"></i>Free Breakfast</div>
+				  <div><i class="fa fa-check" aria-hidden="true"></i>Pay in advance</div>
+				  <div><i class="fa fa-check" aria-hidden="true"></i>Cancellations and refund not allowed</div>
+				  <i class="fa fa-times" aria-hidden="true"></i>
+		
+			</div>
+			<div class="special_offer_modal close">
+				<div class="modal-content middleY">
+					<div class="label"><h2>SPECIAL OFFERS</h2><i class="fa fa-times" aria-hidden="true"></i></div>
+					<div class="modal-desc" >
+						<div><i class="fa fa-check" aria-hidden="true"></i>Free Breakfast</div>
+						<div><i class="fa fa-check" aria-hidden="true"></i>Pay in advance</div>
+						<div><i class="fa fa-check" aria-hidden="true"></i>Cancellations and refund not allowed</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="calendar_modal close">
+
+				<div class="cal_modal_container">
+				<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+
+					<div class="calendar_modal-header">
+						<h3>Availabilities per month</h3>
+						<div class="cdb-container">
+							<div class="cdb-6 calendar_modal_night">
+								<span class="select_nights_label">Select nights</span>
+								<select class="select_nights_option">
+									<option value="#" disabled selected hidden>2 nights</option>
+									<option value="night_1">1 night</option>
+									<option value="night_2">2 night</option>
+									<option value="night_3">3 night</option>
+									<option value="night_4">4 night</option>
+									<option value="night_5">5 night</option>
+									<option value="night_6">6 night</option>
+									<option value="night_7">7 night</option>
+									<option value="night_8">8 night</option>
+									<option value="night_9">9 night</option>
+								</select>
+							</div>
+							<div class="cdb-6 calendar_modal_adults">
+								<span class="select_adults_label">Select Adults</span>
+								<select class="select_adults_option">
+									<option value="#" disabled selected hidden>2 adults</option>
+									<option value="adults_1">1 adult</option>
+									<option value="adults_2">2 adults</option>
+									<option value="adults_3">3 adults</option>
+									<option value="adults_4">4 adults</option>
+									<option value="adults_5">5 adults</option>
+									<option value="adults_6">6 adults</option>
+									<option value="adults_7">7 adults</option>
+									<option value="adults_8">8 adults</option>
+									<option value="adults_9">9 adults</option>
+								</select>
+							</div>
+							<div class="cdb-6 calendar_modal_child">
+								<span class="select_child_label">Select Children</span>
+								<select class="select_child_option">
+									<option value="none">-</option>
+									<option value="children_1">1 child</option>
+									<option value="children_2">2 children</option>
+									<option value="children_3">3 children</option>
+									<option value="children_4">4 children</option>
+									<option value="children_5">5 children</option>
+									<option value="children_6">6 children</option>
+									<option value="children_7">7 children</option>
+									<option value="children_8">8 children</option>
+									<option value="children_9">9 children</option>
+								</select>
+							</div>
+							<div class="cdb-6 calendar_modal_babies">
+								<span class="select_babies_label">Select Babies</span>
+								<select class="select_babies_option">
+									<option value="none">-</option>
+									<option value="babies_1">1 baby</option>
+									<option value="babies_2">2 babies</option>
+									<option value="babies_3">3 babies</option>
+									<option value="babies_4">4 babies</option>
+									<option value="babies_5">5 babies</option>
+									<option value="babies_6">6 babies</option>
+									<option value="babies_7">7 babies</option>
+									<option value="babies_8">8 babies</option>
+									<option value="babies_9">9 babies</option>
+								</select>
+							</div>
+						
+						</div>
+						
+					</div> <!-- calendar_modal-header -->
+						
+					<div class="calendar_container">
+						<div class="calendar_nav">
+							<span id="custom-prev" class="custom-prev"><i class="fa fa-caret-left" aria-hidden="true"></i></span>
+							<span class="month-year_container">
+								<span id="custom-month"></span>
+								<span id="custom-year"></span>
+							</span>
+							<span id="custom-next" class="custom-next"><i class="fa fa-caret-right" aria-hidden="true"></i></span>
+						</div>
+					
+						<div id="calendar_one" class="fc-calendar-container"></div>
+					</div>	<!-- calendar_container -->
+					
+					<div id="calendar_icons" class="cdb-row">
+						<div id="icon_closed" class="cdb-4">
+							<span></span>
+							<span>Closed</span>
+						</div>
+					
+						<div id="icon_booked" class="cdb-4">
+							<span></span>
+							<span>Booked</span>
+						</div>
+						<div id="icon_available" class="cdb-4">
+							<span></span>
+							<span>Available</span>
+						</div>
+						<div id="icon_special_offers" class="cdb-6">
+							<i class="fa fa-certificate" aria-hidden="true"></i>
+							<span>Special Offers</span>
+					
+						</div>
+					
+						<div id="icon_restrictions" class="cdb-6">
+							<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+							<span>Restrictions</span>
+						</div>
+					
+					</div>	<!-- calendar_icons -->
+
+				</div>	<!-- cal_modal_container -->
+				
+			</div>	<!-- calendar_modal close -->
+
+			<footer class="site-footer">
+				<div class="footer-logo">
+					<a href="https://www.syncrez.com" target="_blank"><img src="./images/footer-logo.png"></a>
+				</div>
+			</footer>
+		</div>	<!-- site-container -->
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAK22yULsWFFbHos_MQlLTACzUgLOqymqI&libraries=geometry&sensor=true&language=en"></script>
+ 
+    <script src="./js/calendario/jquery.calendario.js"></script>
+	<script src="./js/calendario/data.js"></script>
+    <script src="./js/calendario/modernizr.custom.js"></script>
+    <script src="./js/frontend.js"></script>
+    <script src="./js/overlay.js"></script>
+
+</body>
+</html>
