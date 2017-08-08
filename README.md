@@ -22,3 +22,7 @@ Use the "Overlay Options" panel on your left side of the screen to view the imag
 ## Compatibility Issues
 
 Only partial compatibility in IE 9/10/11.
+
+## View Demo
+
+View live demo at https://aris-papadopoulos.github.io/image-filters/
